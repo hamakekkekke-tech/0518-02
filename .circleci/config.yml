@@ -1,4 +1,3 @@
-
 version: '2.1'
 
 orbs:
@@ -34,3 +33,8 @@ jobs:
 
       - android/start_emulator_and_run_tests:
           system_image: system-images;android-31;default;x86_64
+
+workflows:
+  test-workflow:
+    jobs:
+      - test
