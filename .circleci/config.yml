@@ -25,7 +25,7 @@ jobs:
       # Dependencies
       - run:
           name: Download Dependencies
-          command: ./gradlew aradlew androidDependencies
+          command: ./gradlew gradlew androidDependencies
           
       # 単体テストの実行
       - run:
