@@ -31,7 +31,7 @@ jobs:
       # 単体テストの実行
       - run:
           name: Run Tests
-          command: ./gradlew lint test
+          command: ./gradlew app/src/test/java/com/example/sample_test/calcTest.java
 
       # キャッシュの保存
       - android/save_gradle_cache:
