@@ -1,35 +1,22 @@
 version: '2.1'
-
 orbs:
   android: circleci/android@3.0.0
-
 jobs:
   test:
     executor:
-      name: android/android_machine
+      name: android/android_machine 
       resource_class: large
       tag: default
-
     steps:
       - checkout
 
       - run:
-          name: Debug current directory
-          command: |
-            echo "PWD:"
-            pwd
-
-            echo "FILES:"
-            ls -la
-
-            echo "SEARCH gradlew:"
-            find . -name gradlew
-
-      - run:
-          name: Grant execute permission
-          command: |
-            chmod +x gradlew
-            ls -l gradlew
-
+          name: Grant execute permission for gradlew
+          command: chmod +x ./gradlew
+          
       - android/start_emulator_and_run_tests:
           system_image: system-images;android-31;default;x86_64
+workflows:
+  test:
+    jobs:
+      - test
