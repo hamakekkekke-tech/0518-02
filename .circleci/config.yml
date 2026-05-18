@@ -4,6 +4,7 @@ orbs:
 
 jobs:
   build_and_test:
+    working_directory: ~/cord
     executor:
       name: android/android_machine
       resource_class: large
@@ -31,7 +32,7 @@ jobs:
       # 単体テストの実行
       - run:
           name: Run Tests
-          command: ./gradlew app/src/test/java/com/example/sample_test/calcTest.java
+          command: ./gradlew test
 
       # キャッシュの保存
       - android/save_gradle_cache:
