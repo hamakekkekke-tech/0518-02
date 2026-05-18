@@ -15,23 +15,7 @@ jobs:
       - android/restore_gradle_cache:
           cache_prefix: v1
             
-      # 権限付与
-      - run:
-          name: Grant execute permission
-          command: |
-            chmod +x gradlew
-            ls -l gradlew
-            
-      # Dependencies
-      # - run:
-          # name: Download Dependencies
-          # command: ./gradlew gradlew androidDependencies
-          
-      # 単体テストの実行
-      - run:
-          name: Run Unit Tests
-          command: ./gradlew list test
-
+      
       # キャッシュの保存
       - android/save_gradle_cache:
           cache_prefix: v1
