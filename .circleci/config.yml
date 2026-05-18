@@ -22,6 +22,16 @@ jobs:
             chmod +x gradlew
             ls -l gradlew
             
+      # Dependencies
+      # - run:
+          # name: Download Dependencies
+          #  command: ./gradlew androidDependencies
+          # command: ./gradlew gradlew androidDependencies
+          
+      # 単体テストの実行
+      - run:
+          name: Run Tests
+          command: ./gradlew lint test
 
       # キャッシュの保存
       - android/save_gradle_cache:
